@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  /* dynamic viewport units keep us edge-to-edge on mobile browser chrome */
+  height: 100dvh;
+  background: #070312;
+}
+
+body {
+  overflow: hidden;
+  background: #070312;
+  -webkit-user-select: none;
+  user-select: none;
+  overscroll-behavior: none;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+}
+
+#root {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* the game canvas always fills the whole viewport, no gaps, no clip */
+canvas {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+/* respect notches / rounded corners on modern phones */
+.safe-pad {
+  padding-top: env(safe-area-inset-top, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  padding-left: env(safe-area-inset-left, 0);
+  padding-right: env(safe-area-inset-right, 0);
+}
+
+/* honour OS "reduce motion" for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .float-anim,
+  .holo-grid,
+  .toast,
+  .screen-in,
+  .briefing-in,
+  .count-pop {
+    animation: none !important;
+  }
+}
+
+/* user-toggled reduced motion (Settings) */
+.reduce-motion .float-anim,
+.reduce-motion .holo-grid,
+.reduce-motion .toast,
+.reduce-motion .screen-in,
+.reduce-motion .briefing-in,
+.reduce-motion .count-pop,
+.reduce-motion .animate-pulse,
+.reduce-motion .animate-bounce {
+  animation: none !important;
+}
+
+/* buttons feel snappier on touch */
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* neon range slider */
+.omega-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #22d3ee, #c026d3);
+  outline: none;
+}
+.omega-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #22d3ee;
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.8);
+  cursor: pointer;
+}
+.omega-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #22d3ee;
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.8);
+  cursor: pointer;
+}
+
+.font-display {
+  font-family: "Orbitron", "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.glow-cyan {
+  text-shadow: 0 0 14px rgba(34, 211, 238, 0.7);
+}
+
+/* angular cyberpunk panel corners */
+.panel-cut {
+  clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+}
+
+/* CRT scanlines overlay */
+.scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.025) 0px,
+    rgba(255, 255, 255, 0.025) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+}
+
+/* holo preview backdrop */
+.holo-grid {
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+  animation: holo-scroll 3s linear infinite;
+}
+@keyframes holo-scroll {
+  from { background-position: 0 0; }
+  to { background-position: 0 22px; }
+}
+
+.float-anim {
+  animation: floaty 2.6s ease-in-out infinite;
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.toast {
+  animation: toast-in 0.25s ease-out;
+}
+
+/* seamless screen transitions */
+.screen-in {
+  animation: screen-in 0.28s ease-out;
+}
+@keyframes screen-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* mission briefing entrance */
+.briefing-in {
+  animation: briefing-in 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes briefing-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* countdown number pop */
+.count-pop {
+  animation: count-pop 0.5s cubic-bezier(0.2, 1.4, 0.3, 1);
+}
+@keyframes count-pop {
+  0% { opacity: 0; transform: scale(2.2); }
+  40% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.85; transform: scale(1.05); }
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* slim cyberpunk scrollbars */
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+*::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.4);
+  border-radius: 3px;
+}

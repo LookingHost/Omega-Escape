@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#070312" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- icons -->
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <link rel="apple-touch-icon" href="./favicon.png" />
+
+    <!-- SEO / social preview -->
+    <meta
+      name="description"
+      content="OMEGA ESCAPE — a cinematic cyberpunk endless runner. Year 2149: escape the districts, hack the Guardians, and outrun NULL, the AI that controls the city."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="OMEGA ESCAPE — Cyberpunk Endless Runner" />
+    <meta
+      property="og:description"
+      content="Escape the Network. Rewrite your destiny. Six unique operatives, procedural districts, and an AI villain hunting you."
+    />
+    <meta property="og:image" content="./banner.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="OMEGA ESCAPE — Cyberpunk Endless Runner" />
+    <meta
+      name="twitter:description"
+      content="Escape the Network. Rewrite your destiny. A cinematic cyberpunk endless runner built with React, TypeScript and Canvas."
+    />
+    <meta name="twitter:image" content="./banner.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Load fonts asynchronously so they never block first paint -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
+    <title>OMEGA ESCAPE — Cyberpunk Endless Runner</title>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Instant boot splash shown until React mounts (prevents blank screen) -->
+      <div id="boot" class="boot-screen">
+        <div class="boot-title">OMEGA <span>ESCAPE</span></div>
+        <div class="boot-bar-track">
+          <div class="boot-bar-progress"></div>
+        </div>
+        <div class="boot-status">BOOTING NEURAL LINK…</div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Failsafe: if the app hasn't mounted in 6s the module script never ran.
+      // This almost always means the RAW SOURCE is being served by a static
+      // server (VS Code Live Server, python http.server, etc.) which cannot
+      // compile TypeScript/JSX. Show clear instructions instead of hanging.
+      (function () {
+        var TIMEOUT = 6000;
+        setTimeout(function () {
+          var boot = document.getElementById("boot");
+          if (!boot) return; // app mounted and removed the splash — all good
+          boot.innerHTML =
+            '<div class="boot-fallback">' +
+            '<div class="boot-fallback-title">OMEGA <span>ESCAPE</span></div>' +
+            '<div class="boot-warning">⚠ BUILD REQUIRED</div>' +
+            '<p class="boot-fallback-text">' +
+            "You're opening the <b>source</b> file with a static server (like VS Code Live Server). " +
+            "It can't compile TypeScript, so the game never starts.</p>" +
+            '<div class="boot-fallback-card">' +
+            '<div class="boot-fallback-card-heading">RUN IT PROPERLY</div>' +
+            '<div class="boot-fallback-subtitle">Development (hot reload):</div>' +
+            '<code class="boot-fallback-code">npm install &amp;&amp; npm run dev</code>' +
+            '<div class="boot-fallback-subtitle">Production (single playable file):</div>' +
+            '<code class="boot-fallback-code">npm run build</code>' +
+            '<div class="boot-fallback-note">then open <b class="boot-fallback-highlight">dist/index.html</b> — that one works with Live Server or by double-clicking.</div>' +
+            "</div>" +
+            '<p class="boot-fallback-note">Tip: after building, <b>dist/index.html</b> is fully self-contained — no server needed at all.</p>' +
+            "</div>";
+        }, TIMEOUT);
+      })();
+    </script>
+  </body>
+</html>

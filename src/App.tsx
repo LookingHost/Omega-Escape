@@ -659,14 +659,8 @@ function GameHud({ hud, onPause }: { hud: HudState; onPause: () => void }) {
       <div className="flex items-end justify-between gap-2">
         <div className="flex flex-col gap-1.5">
           {hud.objective && (
-            <div
-              className={cn(
-                "w-56 max-w-[60vw] rounded-md border px-3 py-1.5 backdrop-blur-md transition",
-                "max-[768px]:fixed max-[768px]:left-3 max-[768px]:top-20 max-[768px]:z-40 max-[768px]:w-48 max-[768px]:max-w-[48vw]",
-                hud.objective.done
-                  ? "border-emerald-300/50 bg-emerald-500/15"
-                  : "border-cyan-300/30 bg-slate-950/60"
-              )}>
+            <div className={cn("w-[150px] max-w-[38vw] rounded-md border px-2 py-1.5 text-[0.68rem] backdrop-blur-md transition",
+              hud.objective.done ? "border-emerald-300/50 bg-emerald-500/15" : "border-cyan-300/30 bg-slate-950/60")}>
               <div className="flex items-center justify-between gap-2">
                 <span className="text-[9px] font-black uppercase tracking-widest text-cyan-300">◈ Objective</span>
                 <span className={cn("text-[10px] font-black tabular-nums", hud.objective.done ? "text-emerald-300" : "text-slate-400")}>

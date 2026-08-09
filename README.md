@@ -1,6 +1,10 @@
 <p align="center">
-  <img src="assets/branding/Banner.png" width="100%" alt="OMEGA ESCAPE — cyberpunk endless runner">
-</p>
+  <img
+    src="./assets/branding/Banner.png"
+    alt="OMEGA ESCAPE wordmark in cyan neon with ESCAPE subtitle in orange neon, featuring circuit board patterns below. Dark black background conveys a high-tech cyberpunk atmosphere."
+    width="100%"
+  />
+</p>>
 
 <p align="center">
   <b>Escape the Network. Rewrite your destiny.</b><br>
@@ -120,23 +124,20 @@ Each character has a distinct **jump height, gravity, acceleration curve, body b
 ## ▸ Screenshots
 
 ### Home
-![Home](assets/screenshots/home.png)
 
-### Gameplay
-![Gameplay](assets/screenshots/gameplay.png)
+![Main menu screen displaying cyan and orange neon title OMEGA ESCAPE with glowing circuit patterns, dark cyberpunk cityscape background, showing navigation options for gameplay and settings with an intense, immersive visual atmosphere](assets/branding/banner.png)
 
-### Character Selection
-![Characters](assets/screenshots/character-selection.png)
+### Logo
 
-### Training Mode
-![Training](assets/screenshots/training-mode.png)
+![Geometric hexagonal symbol with cyan neon coloring representing the Omega Escape brand identity, featuring angular circuit-inspired design on dark background](assets/branding/logo.png)
 
-### Boss Fight
-![Boss](assets/screenshots/boss-fight.png)
+### Logo Mark
 
-### Mobile
-![Mobile](assets/screenshots/mobile-landscape.png)
+![Minimalist geometric mark with cyan neon outlines forming a stylized hexagonal symbol on black background, serves as the primary icon for the Omega Escape brand](assets/branding/Logo-Mark.png)
 
+### Wordmark
+
+![OMEGA ESCAPE text rendered in bold cyan neon with glowing effect, ESCAPE portion in vibrant orange neon below, surrounded by circuit board line patterns in cyan, set against pure black background creating a futuristic and energetic visual impression](assets/branding/Wordmark.png)
 ---
 
 ## ▸ Controls
@@ -187,7 +188,7 @@ Omega-Escape/
 ├── .github/workflows/deploy.yml   # auto-deploy to GitHub Pages
 ├── assets/
 │   ├── branding/
-│   │   ├── Banner.png
+│   │   ├── banner.png
 │   │   ├── Logo.png
 │   │   ├── Logo-Mark.png
 │   │   └── Wordmark.png
@@ -281,6 +282,6 @@ Released under the [MIT License](LICENSE).
 ---
 
 <p align="center">
-  <img src="assets/branding/Logo.png" width="140" alt="Omega Escape logo"><br>
+  <img src="assets/branding/Logo.png" width="140" alt="Omega Escape hexagonal logo mark in cyan neon with circuit patterns on black background"><br>
   <sub><b>There is no exit. Only me.</b> — NULL</sub>
 </p>
